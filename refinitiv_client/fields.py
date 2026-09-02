@@ -9,7 +9,7 @@ ESG_FIELDS = {
     "TR.SocialPillarScore":       "Social Pillar Score",
     "TR.GovernancePillarScore":   "Governance Pillar Score",
     "TR.EnergyUseTotal":          "Energy Use Total",
-    "TR.CO2EmissionTotal":        "CO2 Emission Total",
+    "TR.CO2EmissionTotal":        "CO2 Equivalent Emissions Total",
     "TR.WaterWithdrawalTotal":    "Water Withdrawal Total",
     "TR.RenewableEnergyUseRatio": "Renewable Energy Use Ratio",
     "TR.WomenEmployees":          "Women Employees",
