@@ -11,13 +11,9 @@ Usage:
 import pandas as pd
 import lseg.data as ld
 from typing import Union
+# esg.py — update this import
+from refinitiv_client.fields import ESG_FIELDS, ESG_CODES
 
-from refinitiv_client.fields import (
-    ESG_SCORES,
-    ESG_ENVIRONMENT,
-    ESG_SOCIAL,
-    ESG_GOVERNANCE,
-)
 
 
 def _params(year: str | None) -> dict:
@@ -29,7 +25,7 @@ def get_scores(
     year: str | None = None,
 ) -> pd.DataFrame:
     """Overall ESG score plus the three pillar scores."""
-    return ld.get_data(universe=universe, fields=ESG_SCORES, parameters=_params(year))
+    return ld.get_data(universe=universe, fields=ESG_CODES, parameters=_params(year))
 
 
 def get_environment(
@@ -37,7 +33,7 @@ def get_environment(
     year: str | None = None,
 ) -> pd.DataFrame:
     """Environmental metrics: energy, emissions, water, renewables."""
-    return ld.get_data(universe=universe, fields=ESG_ENVIRONMENT, parameters=_params(year))
+    return ld.get_data(universe=universe, fields=ESG_CODES, parameters=_params(year))
 
 
 def get_social(
@@ -45,7 +41,7 @@ def get_social(
     year: str | None = None,
 ) -> pd.DataFrame:
     """Social metrics: workforce diversity, safety, training."""
-    return ld.get_data(universe=universe, fields=ESG_SOCIAL, parameters=_params(year))
+    return ld.get_data(universe=universe, fields=ESG_CODES, parameters=_params(year))
 
 
 def get_governance(
@@ -53,7 +49,7 @@ def get_governance(
     year: str | None = None,
 ) -> pd.DataFrame:
     """Governance metrics: board composition, independence, committees."""
-    return ld.get_data(universe=universe, fields=ESG_GOVERNANCE, parameters=_params(year))
+    return ld.get_data(universe=universe, fields=ESG_CODES, parameters=_params(year))
 
 
 def get_full_measures(

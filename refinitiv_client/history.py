@@ -12,8 +12,9 @@ Usage:
 import pandas as pd
 import lseg.data as ld
 from typing import Union
-
-from refinitiv_client.fields import ESG_CODES, ESG_SCORES, FINANCIAL_CODES, INCOME_STATEMENT, RATIOS
+# esg.py — update this import
+from refinitiv_client.fields import ESG_FIELDS, ESG_CODES
+from refinitiv_client.fields import FINANCIAL_CODES, INCOME_STATEMENT, RATIOS
 
 
 def get_esg(
@@ -22,7 +23,7 @@ def get_esg(
     end: str,
 ) -> pd.DataFrame:
     """Annual ESG pillar scores over time."""
-    return ld.get_history(universe=universe, fields=ESG_SCORES, start=start, end=end, interval="1Y")
+    return ld.get_history(universe=universe, fields=ESG_CODES, start=start, end=end, interval="1Y")
 
 
 def get_financials(
