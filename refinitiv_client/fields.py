@@ -1,57 +1,49 @@
-# -----------------------------------------------------------------------
-# All TR. field codes live here.
-# Add or remove fields in this file — nothing else needs to change.
-# Use the Data Item Browser (DIB) in Workspace to find codes.
-# -----------------------------------------------------------------------
+# fields.py
 
-ESG_SCORES = [
-    "TR.TRESGScore",                # Overall ESG score
-    "TR.EnvironmentPillarScore",    # Environment pillar
-    "TR.SocialPillarScore",         # Social pillar
-    "TR.GovernancePillarScore",     # Governance pillar
-]
+# Maps TR. code -> display name LSEG returns as the column header
+# Discover display names by printing df.columns after a pull
 
-ESG_ENVIRONMENT = [
-    "TR.EnergyUseTotal",
-    "TR.CO2EmissionTotal",
-    "TR.WaterWithdrawalTotal",
-    "TR.RenewableEnergyUseRatio",
-]
+ESG_FIELDS = {
+    "TR.TRESGScore":              "ESG Score",
+    "TR.EnvironmentPillarScore":  "Environmental Pillar Score",
+    "TR.SocialPillarScore":       "Social Pillar Score",
+    "TR.GovernancePillarScore":   "Governance Pillar Score",
+    "TR.EnergyUseTotal":          "Energy Use Total",
+    "TR.CO2EmissionTotal":        "CO2 Emission Total",
+    "TR.WaterWithdrawalTotal":    "Water Withdrawal Total",
+    "TR.RenewableEnergyUseRatio": "Renewable Energy Use Ratio",
+    "TR.WomenEmployees":          "Women Employees",
+    "TR.EmployeeSatisfaction":    "Employee Satisfaction",
+    "TR.TrainingHoursAverage":    "Training Hours Average",
+    "TR.WorkplaceAccidentRate":   "Workplace Accident Rate",
+    "TR.BoardFemaleMembers":      "Board Female Members",
+    "TR.CSRSustainabilityCommittee": "CSR Sustainability Committee",
+    "TR.BoardIndependentMembers": "Board Independent Members",
+}
 
-ESG_SOCIAL = [
-    "TR.WomenEmployees",
-    "TR.EmployeeSatisfaction",
-    "TR.TrainingHoursAverage",
-    "TR.WorkplaceAccidentRate",
-]
+FINANCIAL_FIELDS = {
+    "TR.Revenue":           "Revenue",
+    "TR.GrossProfit":       "Gross Profit",
+    "TR.EBITDA":            "EBITDA",
+    "TR.EBIT":              "EBIT",
+    "TR.NetIncome":         "Net Income Incl Extra Before Distributions",
+    "TR.EPS":               "EPS",
+    "TR.TotalAssets":       "Total Assets",
+    "TR.TotalLiabilities":  "Total Liabilities",
+    "TR.TotalEquity":       "Total Equity",
+    "TR.TotalDebt":         "Total Debt",
+    "TR.ROEActValue":       "Return On Equity - Actual",
+    "TR.ROAActValue":       "Return On Assets - Actual",
+    "TR.NetProfitMargin":   "Net Profit Margin, (%)",
+    "TR.TotalDebtToEquity": "Total Debt To Equity",
+    "TR.PriceToBVPerShare": "Price To Book Value Per Share (Daily Time Series Ratio)",
+    "TR.PriceToEarnings":   "Price To Earnings",
+}
 
-ESG_GOVERNANCE = [
-    "TR.BoardFemaleMembers",
-    "TR.CSRSustainabilityCommittee",
-    "TR.BoardIndependentMembers",
-]
+# Derived lists used by the library functions
+ESG_CODES        = list(ESG_FIELDS.keys())
+FINANCIAL_CODES  = list(FINANCIAL_FIELDS.keys())
 
-INCOME_STATEMENT = [
-    "TR.Revenue",
-    "TR.GrossProfit",
-    "TR.EBITDA",
-    "TR.EBIT",
-    "TR.NetIncome",
-    "TR.EPS",
-]
-
-BALANCE_SHEET = [
-    "TR.TotalAssets",
-    "TR.TotalLiabilities",
-    "TR.TotalEquity",
-    "TR.TotalDebt",
-]
-
-RATIOS = [
-    "TR.ROEActValue",
-    "TR.ROAActValue",
-    "TR.NetProfitMargin",
-    "TR.TotalDebtToEquity",
-    "TR.PriceToBVPerShare",
-    "TR.PriceToEarnings",
-]
+# Display name sets used by the UI for column categorisation
+ESG_DISPLAY_NAMES       = set(ESG_FIELDS.values())
+FINANCIAL_DISPLAY_NAMES = set(FINANCIAL_FIELDS.values())
