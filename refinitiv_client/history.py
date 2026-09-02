@@ -13,7 +13,7 @@ import pandas as pd
 import lseg.data as ld
 from typing import Union
 
-from refinitiv_client.fields import ESG_SCORES, INCOME_STATEMENT, RATIOS
+from refinitiv_client.fields import ESG_CODES, ESG_SCORES, FINANCIAL_CODES, INCOME_STATEMENT, RATIOS
 
 
 def get_esg(
@@ -40,4 +40,4 @@ def get_combined(
     end: str,
 ) -> pd.DataFrame:
     """ESG scores and financial metrics together — the main input for correlation work."""
-    return ld.get_history(universe=universe, fields=ESG_SCORES + INCOME_STATEMENT + RATIOS, start=start, end=end, interval="1Y")
+    return ld.get_history(universe=universe, fields=ESG_CODES + FINANCIAL_CODES, start=start, end=end, interval="1Y")
