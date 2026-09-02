@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: refinitiv-client
+Version: 0.1.0
+Summary: Internal library for pulling ESG and financial data from LSEG
+Requires-Python: >=3.9
+Requires-Dist: lseg-data
+Requires-Dist: pandas

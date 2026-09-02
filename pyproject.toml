@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "refinitiv-client"
+version = "0.1.0"
+description = "Internal library for pulling ESG and financial data from LSEG"
+requires-python = ">=3.9"
+dependencies = [
+    "lseg-data",
+    "pandas",
+]

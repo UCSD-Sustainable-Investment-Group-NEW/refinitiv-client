@@ -1,0 +1,12 @@
+pyproject.toml
+refinitiv_client/esg.py
+refinitiv_client/fields.py
+refinitiv_client/financials.py
+refinitiv_client/history.py
+refinitiv_client/init.py
+refinitiv_client/session.py
+refinitiv_client.egg-info/PKG-INFO
+refinitiv_client.egg-info/SOURCES.txt
+refinitiv_client.egg-info/dependency_links.txt
+refinitiv_client.egg-info/requires.txt
+refinitiv_client.egg-info/top_level.txt
