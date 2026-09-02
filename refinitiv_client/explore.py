@@ -13,12 +13,15 @@ import lseg.data as ld
 
 
 def esg_fields(ticker: str) -> list[str]:
-    """Prints and returns all available ESG field names for a company."""
-    df = ld.get_data(universe=[ticker], fields=["TR.ESGMeasures"])
-    fields = df.columns.tolist()
-    for f in fields:
+    """Prints all ESG fields that have data for a company."""
+    # Request all known ESG fields at once
+    from refinitiv_client.fields import ESG_CODES
+    df = ld.get_data(universe=[ticker], fields=ESG_CODES)
+    # Only return columns that have at least one non-null value
+    populated = [col for col in df.columns if df[col].notna().any()]
+    for f in populated:
         print(f)
-    return fields
+    return populated
 
 def financial_fields(ticker: str) -> list[str]:
     """Prints and returns all available financial field names for a company."""
