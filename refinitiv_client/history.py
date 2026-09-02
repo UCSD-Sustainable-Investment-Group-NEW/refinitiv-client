@@ -13,8 +13,7 @@ import pandas as pd
 import lseg.data as ld
 from typing import Union
 # esg.py — update this import
-from refinitiv_client.fields import ESG_FIELDS, ESG_CODES
-from refinitiv_client.fields import FINANCIAL_CODES, INCOME_STATEMENT, RATIOS
+from refinitiv_client.fields import ESG_CODES, FINANCIAL_CODES
 
 
 def get_esg(
@@ -32,7 +31,7 @@ def get_financials(
     end: str,
 ) -> pd.DataFrame:
     """Annual income statement and ratio metrics over time."""
-    return ld.get_history(universe=universe, fields=INCOME_STATEMENT + RATIOS, start=start, end=end, interval="1Y")
+    return ld.get_history(universe=universe, fields=FINANCIAL_CODES, start=start, end=end, interval="1Y")
 
 
 def get_combined(
