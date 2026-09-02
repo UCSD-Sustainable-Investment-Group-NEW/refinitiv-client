@@ -12,7 +12,7 @@ import pandas as pd
 import lseg.data as ld
 from typing import Union
 
-from refinitiv_client.fields import INCOME_STATEMENT, BALANCE_SHEET, RATIOS
+from refinitiv_client.fields import FINANCIAL_CODES
 
 
 def _params(year: str | None) -> dict:
