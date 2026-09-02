@@ -23,6 +23,17 @@ def esg_fields(ticker: str) -> list[str]:
         print(f)
     return populated
 
+def esg_fields_content(ticker: str) -> list[str]:
+    """Prints all ESG fields available via the content layer."""
+    from lseg.data.content import esg
+    
+    response = esg.full_measures.Definition(ticker).get_data()
+    df = response.data.df
+    populated = [col for col in df.columns if df[col].notna().any()]
+    for f in populated:
+        print(f)
+    return populated
+
 def financial_fields(ticker: str) -> list[str]:
     """Prints and returns all available financial field names for a company."""
     df = ld.get_data(universe=[ticker], fields=["TR.Financials"])
@@ -42,6 +53,8 @@ if __name__ == "__main__":
     open_session()
     if mode == "esg":
         esg_fields(ticker)
+    elif mode == "content":
+        esg_fields_content(ticker)
     elif mode == "financial":
         financial_fields(ticker)
     close_session()
