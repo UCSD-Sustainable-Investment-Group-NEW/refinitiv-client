@@ -42,6 +42,21 @@ def financial_fields(ticker: str) -> list[str]:
         print(f)
     return fields
 
+def esg_standard_measures(ticker: str) -> list[str]:
+    """Tries the standard_measures content layer — richer than get_data()."""
+    from lseg.data.content import esg
+
+    response = esg.standard_measures.Definition(
+        universe=ticker,
+        start=0,
+        end=-3
+    ).get_data()
+
+    df = response.data.df
+    populated = [col for col in df.columns if df[col].notna().any()]
+    for f in populated:
+        print(f)
+    return populated
 
 if __name__ == "__main__":
     import sys
@@ -57,4 +72,6 @@ if __name__ == "__main__":
         esg_fields_content(ticker)
     elif mode == "financial":
         financial_fields(ticker)
+    elif mode == "standard":
+        esg_standard_measures(ticker)
     close_session()
