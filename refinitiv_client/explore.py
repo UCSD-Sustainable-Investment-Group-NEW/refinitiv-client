@@ -49,7 +49,7 @@ def esg_standard_measures(ticker: str) -> list[str]:
     response = esg.standard_measures.Definition(
         universe=ticker,
         start=0,
-        end=-3
+        end=-2
     ).get_data()
 
     df = response.data.df
